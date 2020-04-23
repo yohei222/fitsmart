@@ -1,5 +1,5 @@
-<% provide(:title, 'Sign up') %>
-<h1 class="display-5 text-center pb-3 mt-3">サインアップ</h1>
+<% provide(:title, '会員登録') %>
+<h1 class="display-5 text-center pb-3 mt-3">会員登録</h1>
 <div class="form mb-5">
   <%= form_for(@user, url: signup_path) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
