@@ -3,7 +3,6 @@
 <h1 class="display-5 text-center pb-3 mt-3">ログイン</h1>
 <div class="form mb-5">
   <%= form_for(:session, url: login_path) do |f| %>
-    <%= render 'shared/flash_messages' %>
     <div class="form-group">
       <%= f.label :email, "Eメール" %>
       <%= f.text_field :email, class: "form-control", placeholder: "Eメールを入力してください" %>

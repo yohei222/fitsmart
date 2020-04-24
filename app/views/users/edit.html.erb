@@ -1,0 +1,21 @@
+<% provide(:title, "ユーザー情報の編集") %>
+<h1 class="display-5 text-center pb-3 mt-3">ユーザー情報の編集</h1>
+<div class="form mb-5">
+  <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group">
+      <%= f.label :name, "ユーザーネーム" %>
+      <%= f.text_field :name, class: "form-control", placeholder: "ユーザーネームを入力してください" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, "Eメール" %>
+      <%= f.text_field :email, class: "form-control", placeholder: "Eメールを入力してください" %>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlFile1">アイコン画像</label>
+      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: "form-control-file" %>
+    </div>
+    <br>
+    <%= f.submit "アカウント情報を更新する", class: "btn btn-primary btn-block text-light" %>
+  <% end %>
+</div>

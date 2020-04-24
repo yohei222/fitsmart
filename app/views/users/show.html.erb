@@ -1,2 +1,7 @@
 <% provide(:title, @user.name) %>
 userのshowページ！
+<% if @user.image? %>
+  <img src='<%= @user.image %>' class="icon" alt="ユーザーアイコン">
+<% else %>
+  <%= image_tag 'default.jpeg' %>
+<% end %>
