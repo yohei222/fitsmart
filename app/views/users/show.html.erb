@@ -17,12 +17,14 @@
       <% end %>
     </div>
       <% if micropost.picture? %>
-        <img src='<%= micropost.picture %>' class="card-img-top" alt="ユーザーアイコン">
+        <img src='<%= micropost.picture %>' class="card-img-top img-full">
       <% end %>
       <div class="card-body">
         <h3 class="card-title">タイトル</h3>
         <p class="card-text mt-4 bg-muted"><%= micropost.content %></p>
-        <a href="#" class="btn btn-primary float-right">Go somewhere</a>
+        <% if current_user?(micropost.user) || current_user.admin? %>
+          <%= link_to "投稿を削除する", micropost, method: :delete, data: { confirm: "本当に削除してよろしいですか？" }, class: "btn btn-primary float-right" %>
+        <% end %>
         <a href="#" class="btn btn-primary float-right mr-3">Go somewhere</a>
       </div>
       <div class="card-footer text-right">
