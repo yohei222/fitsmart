@@ -19,12 +19,12 @@
     <tr>
       <th scope="row"><%= user.id %></th>
       <% if user.image? %>
-        <td><%= image_tag(user.image_url) %></td>
+        <td><%= image_tag user.image.url,class: "icon" %></td>
       <% else %>
-        <td><%= image_tag 'default.jpeg' %></td>
+        <td><%= image_tag 'default.jpeg', class: "icon" %></td>
       <% end %>
       <td><%= user.email %></td>
-      <td><%= link_to user.name, user %><%= link_to "(削除)", user, method: :delete, data: { confirm: "You sure?" } if current_user.admin? && !current_user?(user)  %></td>
+      <td><%= link_to user.name, user %><%= link_to "(削除)", user, method: :delete, data: { confirm: "このユーザーを削除してもよろしいですか？" } if current_user.admin? && !current_user?(user)  %></td>
     </tr>
   <% end %>
   </tbody>
