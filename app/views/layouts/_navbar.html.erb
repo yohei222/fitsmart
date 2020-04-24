@@ -1,5 +1,6 @@
 <!--ログインしている時としていないtこいように書き換える-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= image_tag 'default.jpeg' %>
   <%= link_to "Fit Smart", root_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,17 +12,27 @@
       </li>
       <% if logged_in? %>
         <li class="nav-item">
-          <%= link_to "ユーザー一覧", users_path, class: "nav-link" %>
+          <%= link_to "ユーザー検索", users_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "マイページ", current_user, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "ユーザー情報の編集", edit_user_path(current_user), class: "nav-link" %>
+          <%= link_to "マイアカウントの編集", edit_user_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link", data: { confirm: "ログアウトします。よろしいですか？"}  %>
         </li>
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--            Dropdown link-->
+<!--          </a>-->
+<!--          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">-->
+<!--            <a class="dropdown-item" href="#">Action</a>-->
+<!--            <a class="dropdown-item" href="#">Another action</a>-->
+<!--            <a class="dropdown-item" href="#">Something else here</a>-->
+<!--          </div>-->
+<!--        </li>-->
       <% else %>
         <li class="nav-item">
           <%= link_to "Fit Smartとは？", about_path, class: "nav-link" %>
