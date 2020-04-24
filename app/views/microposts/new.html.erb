@@ -1,0 +1,18 @@
+<% provide(:title, '新規投稿') %>
+<h1 class="display-5 text-center pb-3 mt-3">新規投稿</h1>
+<div class="form mb-5">
+  <%= form_for(@micropost) do |f| %>
+    <%= render 'shared/object_error_messages', object: f.object %>
+    <div class="form-group">
+      <%= f.label :content, "内容" %>
+      <%= f.text_field :content, class: "form-control", placeholder: "テキストを入力してください" %>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlFile1">画像</label>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: "form-control-file" %>
+      <small id="emailHelp" class="form-text text-muted">アップロードされない場合はデフォルトのアイコンで登録されます</small>
+    </div>
+    <br>
+    <%= f.submit "新規投稿", class: "btn btn-primary btn-block text-light" %>
+  <% end %>
+</div>
