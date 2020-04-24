@@ -1,6 +1,5 @@
 <% provide(:title, '全てのユーザー') %>
 <h1 class="display-5 text-center pb-5 mt-3">全てのユーザー</h1>
-<div class="text-center"><%= will_paginate %></div>
 <table class="table">
   <thead>
   <tr>
@@ -17,14 +16,14 @@
   <tbody>
   <% @users.each do |user| %>
     <tr>
-      <th scope="row"><%= user.id %></th>
+      <th scope="row" class="align-middle"><%= user.id %></th>
       <% if user.image? %>
-        <td><%= image_tag user.image.url,class: "icon" %></td>
+        <td class="align-middle"><%= image_tag user.image.url,class: "icon" %></td>
       <% else %>
-        <td><%= image_tag 'default.jpeg', class: "icon" %></td>
+        <td class="align-middle"><%= image_tag 'default.jpeg', class: "icon" %></td>
       <% end %>
-      <td><%= user.email %></td>
-      <td><%= link_to user.name, user %><%= link_to "(削除)", user, method: :delete, data: { confirm: "このユーザーを削除してもよろしいですか？" } if current_user.admin? && !current_user?(user)  %></td>
+      <td class="align-middle"><%= user.email %></td>
+      <td class="align-middle"><%= link_to user.name, user %><%= link_to "(削除)", user, method: :delete, data: { confirm: "このユーザーを削除してもよろしいですか？" } if current_user.admin? && !current_user?(user)  %></td>
     </tr>
   <% end %>
   </tbody>
