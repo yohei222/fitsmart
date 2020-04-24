@@ -1,7 +1,35 @@
 <% provide(:title, @user.name) %>
-userのshowページ！
+<h1 class="display-5 text-center pb-5 mt-3">
 <% if @user.image? %>
-  <img src='<%= @user.image %>' class="icon" alt="ユーザーアイコン">
+  <img src='<%= @user.image %>' class="icon"><span class="h2 ml-3 align-middle"><%= @user.name %></span><span>さんの投稿一覧</span>
 <% else %>
-  <%= image_tag 'default.jpeg' %>
+  <%= image_tag 'default.jpeg' %><span class="h2 ml-3 align-middle"><%= @user.name %></span><span class="small ml-4">さんの投稿一覧</span>
 <% end %>
+</h1>
+
+<% @microposts.each do |micropost| %>
+  <div class="card mb-5">
+    <div class="card-header">
+      <% if @user.image? %>
+        <img src='<%= @user.image %>' class="icon"><span class="h2 ml-3 align-middle"><%= @user.name %></span>
+      <% else %>
+        <%= image_tag 'default.jpeg' %><span class="h2 ml-3 pt-2 align-middle"><%= @user.name %></span>
+      <% end %>
+    </div>
+      <% if micropost.picture? %>
+        <img src='<%= micropost.picture %>' class="card-img-top" alt="ユーザーアイコン">
+      <% end %>
+      <div class="card-body">
+        <h3 class="card-title">タイトル</h3>
+        <p class="card-text mt-4 bg-muted"><%= micropost.content %></p>
+        <a href="#" class="btn btn-primary float-right">Go somewhere</a>
+        <a href="#" class="btn btn-primary float-right mr-3">Go somewhere</a>
+      </div>
+      <div class="card-footer text-right">
+        <small class="text-muted "><%= time_ago_in_words(micropost.created_at) %>前</small>
+      </div>
+  </div>
+<% end %>
+
+<div class="text-center"><%= will_paginate(@microposts) %></div>
+
