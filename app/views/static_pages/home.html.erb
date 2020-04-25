@@ -10,19 +10,18 @@
             <%= image_tag 'default.jpeg' %><span class="h2 ml-3 pt-2 align-middle"><%= micropost.user.name %></span>
           <% end %>
         </div>
-        <% if micropost.picture? %>
-          <img src='<%= micropost.picture %>' class="card-img-top img-full">
-        <% end %>
         <div class="card-body">
-          <h3 class="card-title">タイトル</h3>
-          <p class="card-text mt-4 bg-muted"><%= micropost.content %></p>
-          <% if current_user?(micropost.user) || current_user.admin? %>
-            <%= link_to "投稿を削除する", micropost, method: :delete, data: { confirm: "本当に削除してよろしいですか？" }, class: "btn btn-primary float-right " %>
+          <% if micropost.picture? %>
+            <img src='<%= micropost.picture %>' class="card-img-top img-full pull-right">
           <% end %>
-          <a href="#" class="btn btn-primary float-right mr-3">Go somewhere</a>
+          <h3 class="card-title"><%= micropost.title if micropost.title? %></h3>
+          <p class="card-text mt-4 bg-muted"><%= micropost.content %></p>
         </div>
         <div class="card-footer text-right">
-          <small class="text-muted "><%= time_ago_in_words(micropost.created_at) %>前</small>
+          <% if current_user?(micropost.user) || current_user.admin? %>
+            <%= link_to "投稿を削除する", micropost, method: :delete, data: { confirm: "本当に削除してよろしいですか？" }, class: "btn btn-primary float-left" %>
+          <% end %>
+          <small class="text-muted"><%= time_ago_in_words(micropost.created_at) %>前</small>
         </div>
       </div>
     <% end %>
