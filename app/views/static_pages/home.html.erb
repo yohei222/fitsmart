@@ -5,9 +5,9 @@
       <div class="card mb-5">
         <div class="card-header">
           <% if micropost.user.image? %>
-            <img src='<%= micropost.user.image %>' class="icon"><span class="h2 ml-3 align-middle"><%= micropost.user.name %></span>
+            <img src='<%= micropost.user.image %>' class="icon icon-small"><span class="h4 ml-3 align-middle"><%= link_to micropost.user.name, user_path(micropost.user), class: "text-muted" %></span>
           <% else %>
-            <%= image_tag 'default.jpeg' %><span class="h2 ml-3 pt-2 align-middle"><%= micropost.user.name %></span>
+            <%= image_tag 'default.jpeg', class: "icon icon-small" %><span class="h4 ml-3 pt-2 align-middle"><%= link_to micropost.user.name, user_path(micropost.user), class: "text-muted" %></span>
           <% end %>
         </div>
         <div class="card-body">
