@@ -1,6 +1,33 @@
-<h1>Sample App</h1>
-<p>
-  This is the home page for the
-  <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-  sample application.
-</p>
+<% provide(:title, "投稿一覧") %>
+<% if logged_in? %>
+  <h1 class="display-5 text-center pb-5 mt-3 ">投稿一覧</h1>
+    <% @feed_items.each do |micropost| %>
+      <div class="card mb-5">
+        <div class="card-header">
+          <% if micropost.user.image? %>
+            <img src='<%= micropost.user.image %>' class="icon icon-small"><span class="h4 ml-3 align-middle"><%= link_to micropost.user.name, user_path(micropost.user), class: "text-muted" %></span>
+          <% else %>
+            <%= image_tag 'default.jpeg', class: "icon icon-small" %><span class="h4 ml-3 pt-2 align-middle"><%= link_to micropost.user.name, user_path(micropost.user), class: "text-muted" %></span>
+          <% end %>
+        </div>
+        <div class="card-body">
+          <% if micropost.picture? %>
+            <img src='<%= micropost.picture %>' class="card-img-top img-full pull-right">
+          <% end %>
+          <h3 class="card-title"><%= micropost.title if micropost.title? %></h3>
+          <p class="card-text mt-4 bg-muted"><%= micropost.content %></p>
+        </div>
+        <div class="card-footer text-right">
+          <% if current_user?(micropost.user) || current_user.admin? %>
+            <%= link_to "投稿を削除する", micropost, method: :delete, data: { confirm: "本当に削除してよろしいですか？" }, class: "btn btn-primary float-left" %>
+          <% end %>
+          <small class="text-muted"><%= time_ago_in_words(micropost.created_at) %>前</small>
+        </div>
+      </div>
+    <% end %>
+<% else %>
+  <div class="center jumbotron">
+    <h1>ログインしていない時〜！</h1>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

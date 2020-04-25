@@ -1,0 +1,21 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.icon {
+  border-radius: 50%;
+}
+
+img{
+  border-radius: 50%;
+}
+
+.img-full{
+  border-radius: 0%;
+  width: 50%;
+  height: auto;
+
+}
+
+.icon-small{
+  width: 3%;
+}

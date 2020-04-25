@@ -1,0 +1,9 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% user_signin_error(@user).each do |msg| %>
+        <p class="alert alert-danger"><%= msg %></p>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
