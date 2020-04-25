@@ -15,6 +15,21 @@
       <label for="exampleFormControlFile1">アイコン画像</label>
       <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: "form-control-file" %>
     </div>
+    <div class="field form-group">
+      <div><%= f.label :sex %></div>
+      <div class="radio-inline">
+        <%= f.radio_button :sex, :man, checked: "checked" %>
+        <%= f.label :男性 %>
+      </div>
+      <div class="radio-inline">
+        <%= f.radio_button :sex, :woman %>
+        <%= f.label :女性 %>
+      </div>
+      <div class="radio-inline">
+        <%= f.radio_button :sex, :unanswered %>
+        <%= f.label :回答しない %>
+      </div>
+    </div>
     <br>
     <%= f.submit "アカウント情報を更新する", class: "btn btn-primary btn-block text-light" %>
   <% end %>

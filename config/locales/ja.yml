@@ -1,4 +1,9 @@
 ja:
+  enums:
+    user:
+      sex:
+        man: 男
+        woman: 女
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
@@ -44,3 +49,4 @@ ja:
         email: Eメール
         image: 画像
         password: パスワード
+        sex: 性別
