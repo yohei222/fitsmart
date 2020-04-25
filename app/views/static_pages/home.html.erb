@@ -25,6 +25,9 @@
         </div>
       </div>
     <% end %>
+  <% if @feed_items.empty? %>
+    <p class="text-center">投稿はありません</p>
+  <% end %>
 <% else %>
   <div class="center jumbotron">
     <h1>ログインしていない時〜！</h1>
