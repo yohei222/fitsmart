@@ -10,7 +10,6 @@
     <div class="form-group">
       <label for="exampleFormControlFile1">画像</label>
       <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: "form-control-file" %>
-      <small id="emailHelp" class="form-text text-muted">アップロードされない場合はデフォルトのアイコンで登録されます</small>
     </div>
     <br>
     <%= f.submit "新規投稿", class: "btn btn-primary btn-block text-light" %>
