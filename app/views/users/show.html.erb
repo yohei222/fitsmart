@@ -1,9 +1,9 @@
 <% provide(:title, @user.name) %>
 <h1 class="display-5 text-center pb-5 mt-3">
 <% if @user.image? %>
-  <img src='<%= @user.image %>' class="icon"><span class="h2 ml-3 align-middle"><%= @user.name %></span><span class="small ml-4">さんの投稿一覧</span>
+  <img src='<%= @user.image %>' class="icon"><span class="h2 ml-3 align-middle"><%= @user.name %></span><span class="ml-4 font-small text-muted">さんの投稿一覧</span>
 <% else %>
-  <%= image_tag 'default.jpeg' %><span class="h2 ml-3 align-middle"><%= @user.name %></span><span class="small ml-4">さんの投稿一覧</span>
+  <%= image_tag 'default.jpeg' %><span class="h2 ml-3 align-middle"><%= @user.name %></span><span class="ml-4 font-small text-muted">さんの投稿一覧</span>
 <% end %>
 </h1>
 
