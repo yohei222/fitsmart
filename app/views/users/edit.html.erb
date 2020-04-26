@@ -34,20 +34,20 @@
       <div><%= f.label :status %></div>
       <% if @user.status == 0 %>
         <div class="radio-inline">
-          <%= f.radio_button :status, :unreleased, checked: "checked" %>
-          <%= f.label :非公開 %>
-        </div>
-        <div class="radio-inline">
-          <%= f.radio_button :status, :released %>
-          <%= f.label :公開 %>
-        </div>
-      <% else %>
-        <div class="radio-inline">
           <%= f.radio_button :status, :unreleased %>
           <%= f.label :非公開 %>
         </div>
         <div class="radio-inline">
           <%= f.radio_button :status, :released, checked: "checked" %>
+          <%= f.label :公開 %>
+        </div>
+      <% else %>
+        <div class="radio-inline">
+          <%= f.radio_button :status, :nonreleased, checked: "checked" %>
+          <%= f.label :非公開 %>
+        </div>
+        <div class="radio-inline">
+          <%= f.radio_button :status, :released %>
           <%= f.label :公開 %>
         </div>
       <% end %>
