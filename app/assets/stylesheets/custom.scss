@@ -27,14 +27,17 @@ img{
   background-size: cover;
 }
 
-.background-image{
-  background-image: image-url('white-background.png');
-  background-color: rgba(255,255,255,0.8);
-  background-blend-mode: lighten;
-  background-size: cover;
-  height: 100vh;
-}
-
 .font-small{
   font-size: 39%;
+}
+
+body {
+  background-image: image-url('white-background.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  background-color: rgba(255,255,255,0.8);
+  background-blend-mode: lighten;
 }

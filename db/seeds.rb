@@ -2,7 +2,7 @@ User.create!(name:  "ようへい",
              email: "9oclockyohey@gmail.com",
              password:              "password",
              password_confirmation: "password",
-             admin: true, sex: 0)
+             admin: true, sex: 0, status: 1)
 
 99.times do |n|
   name  = Faker::Name.name
@@ -11,11 +11,11 @@ User.create!(name:  "ようへい",
   User.create!(name:  name,
                email: email,
                password:              password,
-               password_confirmation: password, sex: 0)
+               password_confirmation: password, sex: 0, status: 1)
 end
 
 users = User.order(:created_at).take(6)
-50.times do
+50.times do |n|
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content, title: "筋トレ大好き") }
+  users.each { |user| user.microposts.create!(content: content, title: "筋トレ大好き#{n+1}だよ") }
 end
