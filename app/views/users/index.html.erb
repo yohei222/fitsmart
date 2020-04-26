@@ -6,6 +6,7 @@
     <th scope="col">ID</th>
     <th scope="col">アイコン</th>
     <th scope="col">Eメール</th>
+    <th scope="col">公開設定</th>
     <% if current_user.admin? %>
       <th scope="col">プロフィールリンク(削除)</th>
     <% else %>
@@ -23,6 +24,7 @@
         <td class="align-middle"><%= image_tag 'default.jpeg', class: "icon" %></td>
       <% end %>
       <td class="align-middle"><%= user.email %></td>
+      <td class="align-middle"><%= user.status_i18n %></td>
       <td class="align-middle"><%= link_to user.name, user %><%= link_to "(削除)", user, method: :delete, data: { confirm: "このユーザーを削除してもよろしいですか？" } if current_user.admin? && !current_user?(user)  %></td>
     </tr>
   <% end %>
