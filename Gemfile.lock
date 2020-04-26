@@ -53,6 +53,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    after_commit_action (1.1.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     arel (9.0.0)
     autoprefixer-rails (9.7.6)
       execjs
@@ -98,6 +101,10 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
+    counter_culture (1.12.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      after_commit_action (~> 1.0)
     crass (1.0.6)
     database_cleaner (1.8.4)
     debug_inspector (0.0.3)
@@ -488,6 +495,7 @@ DEPENDENCIES
   capybara
   carrierwave
   coffee-rails (~> 4.2)
+  counter_culture (~> 1.8)
   database_cleaner
   enum_help
   factory_bot_rails
