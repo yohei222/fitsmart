@@ -1,34 +1,58 @@
 <% provide(:title, '全てのユーザー') %>
 <h1 class="display-5 text-center pb-5 mt-3">全てのユーザー</h1>
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th scope="col">ID</th>
-    <th scope="col">アイコン</th>
-    <th scope="col">Eメール</th>
-    <th scope="col">公開設定</th>
-    <% if current_user.admin? %>
-      <th scope="col">プロフィールリンク(削除)</th>
-    <% else %>
-      <th scope="col">プロフィールリンク</th>
+
+
+<div class="mb-5">
+  <div class="search_form">
+    <%= search_form_for @q do |f| %>
+      <%= f.label :name_cont, 'ユーザーの検索' %>
+      <div class="input-group">
+        <%= f.text_field :name_cont, placeholder: "ユーザーネームを入力してください",
+                         class: 'form-control' %>
+        <span class="input-group-btn">
+         <%= f.submit '検索', class: "btn btn-primary" %>
+        </span>
+      </div>
     <% end %>
-  </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
+  </div>
+</div>
+
+<% if @users.empty? %>
+  <div class="text-center">該当するユーザーは存在しません</div>
+<% else %>
+  <table class="table table-hover">
+    <thead>
     <tr>
-      <th scope="row" class="align-middle"><%= user.id %></th>
-      <% if user.image? %>
-        <td class="align-middle"><%= image_tag user.image.url,class: "icon" %></td>
-      <% else %>
-        <td class="align-middle"><%= image_tag 'default.jpeg', class: "icon" %></td>
+      <th scope="col">ID</th>
+      <th scope="col">アイコン</th>
+      <th scope="col">Eメール</th>
+      <th scope="col">公開設定</th>
+      <th scope="col">ユーザー名(プロフィールリンク)</th>
+      <% if current_user.admin? %>
+        <th scope="col">ユーザーを削除</th>
       <% end %>
-      <td class="align-middle"><%= user.email %></td>
-      <td class="align-middle"><%= user.status_i18n %></td>
-      <td class="align-middle"><%= link_to user.name, user %><%= link_to "(削除)", user, method: :delete, data: { confirm: "このユーザーを削除してもよろしいですか？" } if current_user.admin? && !current_user?(user)  %></td>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th scope="row" class="align-middle"><%= user.id %></th>
+        <% if user.image? %>
+          <td class="align-middle"><%= image_tag user.image.url,class: "icon" %></td>
+        <% else %>
+          <td class="align-middle"><%= image_tag 'default.jpeg', class: "icon" %></td>
+        <% end %>
+        <td class="align-middle"><%= user.email %></td>
+        <td class="align-middle"><%= user.status_i18n %></td>
+        <td class="align-middle"><%= link_to user.name, user %></td>
+        <% if current_user.admin? %>
+          <td class="align-middle"><%= link_to "削除", user, method: :delete, data: { confirm: "このユーザーを削除してもよろしいですか？" } if current_user.admin? && !current_user?(user)  %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+
 
 <div class="text-center"><%= will_paginate %></div>
