@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   get 'sessions/new'
   root 'static_pages#home'
   get  '/about', to: 'static_pages#about'
@@ -8,5 +10,6 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :microposts,          only: [:new, :create, :destroy]
+  resources :microposts, only: [:new, :create, :destroy]
+  resources :likes, only: [:create, :destroy]
 end

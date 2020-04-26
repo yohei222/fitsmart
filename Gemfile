@@ -9,6 +9,7 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'faker'
 gem 'ransack'
+gem 'counter_culture', '~> 1.8'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
