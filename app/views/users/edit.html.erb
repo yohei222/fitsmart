@@ -30,6 +30,28 @@
         <%= f.label :回答しない %>
       </div>
     </div>
+    <div class="field form-group">
+      <div><%= f.label :status %></div>
+      <% if @user.status == 0 %>
+        <div class="radio-inline">
+          <%= f.radio_button :status, :unreleased %>
+          <%= f.label :非公開 %>
+        </div>
+        <div class="radio-inline">
+          <%= f.radio_button :status, :released, checked: "checked" %>
+          <%= f.label :公開 %>
+        </div>
+      <% else %>
+        <div class="radio-inline">
+          <%= f.radio_button :status, :nonreleased, checked: "checked" %>
+          <%= f.label :非公開 %>
+        </div>
+        <div class="radio-inline">
+          <%= f.radio_button :status, :released %>
+          <%= f.label :公開 %>
+        </div>
+      <% end %>
+    </div>
     <br>
     <%= f.submit "アカウント情報を更新する", class: "btn btn-primary btn-block text-light" %>
   <% end %>

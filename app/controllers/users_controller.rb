@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   def user_without_password_params
-    params.require(:user).permit(:name, :email, :image, :sex)
+    params.require(:user).permit(:name, :email, :image, :sex, :status)
   end
 
   def correct_user

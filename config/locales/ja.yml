@@ -4,6 +4,9 @@ ja:
       sex:
         man: 男
         woman: 女
+      status:
+        nonreleased: 非公開
+        released: 公開
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
@@ -50,3 +53,4 @@ ja:
         image: 画像
         password: パスワード
         sex: 性別
+        status: 公開設定
