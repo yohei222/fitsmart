@@ -5,6 +5,14 @@ class UsersController < ApplicationController
 
   def index
     @users = User.order(updated_at: :desc).paginate(page: params[:page])
+    if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
+      @q = User.ransack(search_params, activated_true: true)
+      @title = "検索結果"
+    else
+      @q = User.ransack(activated_true: true)
+      @title = "全てのユーザー"
+    end
+    @users = @q.result.paginate(page: params[:page])
   end
 
   def new
@@ -48,6 +56,10 @@ class UsersController < ApplicationController
   end
 
   private
+  def search_params
+    params.require(:q).permit(:name_cont)
+  end
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
   end
