@@ -29,6 +29,7 @@
           </div>
         </div>
       <% end %>
+      <div class="text-center"><%= will_paginate(@feed_items) %></div>
     <% end %>
   <% if @feed_items.empty? %>
     <p class="text-center">投稿はありません</p>
@@ -39,5 +40,3 @@
     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>
-
-<div class="text-center"><%= will_paginate(@feed_items) %></div>
