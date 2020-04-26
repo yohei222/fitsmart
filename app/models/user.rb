@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
   enum sex: { man: 0, woman: 1, unanswered: 2 }
+  enum status: { nonreleased: 0, released: 1 }
   attr_accessor :remember_token
   mount_uploader :image, ImageUploader
   before_save { self.email = email.downcase }
