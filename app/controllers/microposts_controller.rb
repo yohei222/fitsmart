@@ -4,6 +4,7 @@ class MicropostsController < ApplicationController
 
   def new
     @micropost = current_user.microposts.new
+    @micropost.exercise_microposts.build
   end
 
   def create
