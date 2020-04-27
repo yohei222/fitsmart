@@ -1,6 +1,6 @@
 <% provide(:title, "投稿一覧") %>
 <% if logged_in? %>
-  <h1 class="display-5 text-center pb-5 mt-3 ">投稿一覧</h1>
+  <h1 class="h2 text-center pb-5 mt-3 font-italic">投稿一覧</h1>
     <% @feed_items.each do |micropost| %>
       <% if micropost.user.released? || current_user?(micropost.user) || current_user.admin? %>
         <div class="card mb-5">
@@ -11,16 +11,24 @@
               <%= image_tag 'default.jpeg', class: "icon icon-small" %><span class="h4 ml-3 pt-2 align-middle"><%= link_to micropost.user.name, user_path(micropost.user), class: "text-muted" %></span>
             <% end %>
           </div>
-          <div class="card-body">
+          <div class="card-body post-paper">
             <% if micropost.picture? %>
-              <img src='<%= micropost.picture %>' class="card-img-top img-full pull-right">
+              <img src='<%= micropost.picture %>' class="card-img-top img-full pull-right mb-5">
             <% end %>
-            <h3 class="card-title"><%= micropost.title if micropost.title? %></h3>
-            <p class="card-text mt-4 bg-muted"><%= micropost.content %></p>
+            <span class="font-weight-bold border-bottom">タイトル</span>
+            <p class="card-title h4 font-weight-bold mb-4 text-danger"><%= micropost.title if micropost.title? %></p>
+            <span class="font-weight-bold border-bottom">振り返り</span>
+            <span class="card-text bg-muted"><%= simple_format(micropost.content) %></span>
+            <div class="mt-2">
+              <span class="font-weight-bold border-bottom">今日のトレーニング</span>
+              <% micropost.records.each do |record| %>
+                <p class="mt-3"><span class="text-primary font-weight-bold font-italic"><%= Exercise.find(record.exercise_id).name %></span>：<span class="font-weight-bold font-italic"><%= record.weight %></span>キロ × <span class="font-weight-bold font-italic"><%= record.sets %></span>セット × <span class="font-weight-bold font-italic"><%= record.times %></span>回</p>
+              <% end %>
+            </div>
+            <ol id="micropost-<%= micropost.id %>" data-micropost-id="<%= micropost.id %>" class="text-right mb-0 mt-0">
+              <%= render "likes/like", micropost: micropost %>
+            </ol>
           </div>
-          <ol id="micropost-<%= micropost.id %>" data-micropost-id="<%= micropost.id %>" class="text-right mb-0">
-            <%= render "likes/like", micropost: micropost %>
-          </ol>
           <div class="card-footer text-right">
             <% if current_user?(micropost.user) || current_user.admin? %>
               <%= link_to "投稿を削除する", micropost, method: :delete, data: { confirm: "本当に削除してよろしいですか？" }, class: "btn btn-primary float-left" %>
