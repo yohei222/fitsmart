@@ -45,7 +45,8 @@ ja:
         other: "%{count}年以上"
   activerecord:
     models:
-      user: ユーザー
+        user: ユーザー
+        micropost: 投稿
     attributes:
       user:
         name: ユーザーネーム
@@ -54,3 +55,10 @@ ja:
         password: パスワード
         sex: 性別
         status: 公開設定
+      micropost:
+        title: タイトル
+        content: 振り返り
+      records:
+        weight: 重量
+        times: 回数
+        sets: セット数

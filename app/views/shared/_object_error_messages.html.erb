@@ -2,7 +2,7 @@
   <div id="error_explanation">
     <ul>
       <% object.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <div class="alert alert-danger"><%= msg %></div>
       <% end %>
     </ul>
   </div>

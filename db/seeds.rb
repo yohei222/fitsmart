@@ -4,9 +4,9 @@ User.create!(name:  "ようへい",
              password_confirmation: "password",
              admin: true, sex: 0, status: 1)
 
-99.times do |n|
+50.times do |n|
   name  = Faker::Name.name
-  email = "user#{n+1}@gmail.com"
+  email = "user-public#{n+1}@gmail.com"
   password = "password"
   User.create!(name:  name,
                email: email,
@@ -14,8 +14,21 @@ User.create!(name:  "ようへい",
                password_confirmation: password, sex: 0, status: 1)
 end
 
+50.times do |n|
+  name  = Faker::Name.name
+  email = "user-private#{n+1}@gmail.com"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password, sex: 1, status: 0)
+end
+
 users = User.order(:created_at).take(6)
 50.times do |n|
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content, title: "筋トレ大好き#{n+1}だよ") }
+  users.each { |user| user.microposts.create!(content: content, title: "筋トレ#{n+1}だよ") }
 end
+
+exercise_names = ["ベンチプレス", "ダンベルフライ", "ペックフライ", "ローイング", "ラットプルダウン", "スクワット", "レッグエクステンション", "レッグカール", "腹筋台"]
+exercise_names.each { |name| Exercise.create!(name: name) }

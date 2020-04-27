@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_26_102823) do
+ActiveRecord::Schema.define(version: 2020_04_27_022328) do
+
+  create_table "exercises", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -34,6 +40,18 @@ ActiveRecord::Schema.define(version: 2020_04_26_102823) do
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
+  create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "micropost_id"
+    t.integer "exercise_id"
+    t.integer "weight"
+    t.integer "times"
+    t.integer "sets"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_records_on_exercise_id"
+    t.index ["micropost_id"], name: "index_records_on_micropost_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", limit: 1, default: 1, null: false
     t.integer "sex", limit: 2, default: 2
@@ -49,4 +67,5 @@ ActiveRecord::Schema.define(version: 2020_04_26_102823) do
   end
 
   add_foreign_key "microposts", "users"
+  add_foreign_key "records", "microposts"
 end

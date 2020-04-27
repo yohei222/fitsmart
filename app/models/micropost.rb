@@ -1,11 +1,14 @@
 class Micropost < ApplicationRecord
   belongs_to :user
+  has_many :records, dependent: :destroy
+  accepts_nested_attributes_for :records
   has_many :likes, dependent: :destroy
   has_many :iine_users, through: :likes, source: :user
   mount_uploader :picture, PictureUploader
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
-  validates :content, presence: true, length: { maximum: 100 }
+  validates :title, presence: true, length: { maximum: 20 }
+  validates :content, presence: true, length: { maximum: 150 }
 
   def iine(user)
     likes.create(user_id: user.id)
