@@ -4,12 +4,28 @@
   <%= form_for(@micropost) do |f| %>
     <%= render 'shared/object_error_messages', object: f.object %>
     <div class="form-group">
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %>
+    </div>
+    <div class="form-group">
       <%= f.label :content, "内容" %>
-      <%= f.text_field :content, class: "form-control", placeholder: "テキストを入力してください" %>
+      <%= f.text_area :content, class: "form-control", placeholder: "テキストを入力してください" %>
     </div>
     <div class="form-group">
       <label for="exampleFormControlFile1">画像</label>
       <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: "form-control-file" %>
+    </div>
+    <div class="form-group">
+      <%= f.fields_for :records do |b| %>
+        <%= b.label :exercise_id, "種目" %>
+        <%= b.select :exercise_id, Exercise.all.map { |exercise| [exercise.name, exercise.id] }, class: "form-control" %>
+        <%= b.label :weight, "重量" %>
+        <%= b.number_field :weight %>
+        <%= b.label :times, "回数" %>
+        <%= b.number_field :times %>
+        <%= b.label :sets, "セット数" %>
+        <%= b.number_field :sets %>
+      <% end %>
     </div>
     <br>
     <%= f.submit "新規投稿", class: "btn btn-primary btn-block text-light" %>

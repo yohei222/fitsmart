@@ -19,3 +19,7 @@ users = User.order(:created_at).take(6)
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.microposts.create!(content: content, title: "筋トレ大好き#{n+1}だよ") }
 end
+
+10.times do |n|
+  Exercise.create(name: "トレーニング名#{n+1}")
+end
