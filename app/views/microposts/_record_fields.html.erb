@@ -1,0 +1,37 @@
+<div class="nested-fields mb-3 border-bottom">
+  <%= f.label :exercise_id, "種目：" %>
+  <%= f.select :exercise_id, Exercise.all.map { |exercise| [exercise.name, exercise.id] }, class: "form-control border-input", :include_blank => "▼選択してください" %>
+  <br>
+  <%= f.label :weight, "重量：" %>
+  <%= f.number_field :weight, list: "list-weight", class: "border-input" %>
+    <datalist id="list-weight">
+      <option value="20">
+      <option value="25">
+      <option value="30">
+      <option value="35">
+      <option value="40">
+      <option value="45">
+      <option value="50">
+    </datalist>
+  <br>
+  <%= f.label :times, "回数：" %>
+  <%= f.number_field :times, list: "list-times", class: "border-input" %>
+    <datalist id="list-times">
+      <option value="7">
+      <option value="10">
+      <option value="13">
+      <option value="15">
+      <option value="20">
+    </datalist>
+  <br>
+  <%= f.label :sets, "セット数：" %>
+  <%= f.number_field :sets, list: "list-sets", class: "border-input" %>
+    <datalist id="list-sets">
+      <option value="1">
+      <option value="2">
+      <option value="3">
+      <option value="4">
+      <option value="5">
+    </datalist>
+  <span class="pull right"><%= link_to_remove_association '削除', f, id: "remove-btn", class: 'btn btn-danger text-light mb-2 btn-sm' %></span>
+</div>

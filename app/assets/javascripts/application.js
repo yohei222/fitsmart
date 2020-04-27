@@ -13,10 +13,17 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
+//= require cocoon
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
 
 $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
-})
+});
+
+$(document).on('turbolinks:load', function() {
+    if ($('.nested-fields').length == 1) {
+        $('#remove-btn').hide();
+    }
+});
