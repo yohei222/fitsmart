@@ -1,4 +1,5 @@
 <% provide(:title, '会員登録') %>
+
 <h1 class="display-5 text-center pb-3 mt-3">会員登録</h1>
 <div class="form mb-5">
   <%= form_for(@user, url: signup_path) do |f| %>
@@ -26,6 +27,6 @@
       <small id="emailHelp" class="form-text text-muted">アップロードされない場合はデフォルトのアイコンで登録されます</small>
     </div>
     <br>
-    <%= f.submit "アカウントを新規作成する", class: "btn btn-primary btn-block text-light" %>
+    <%= f.submit "アカウントを新規作成する", class: "btn btn-primary btn-block text-light mb-5" %>
   <% end %>
 </div>
