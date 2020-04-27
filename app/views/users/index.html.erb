@@ -23,13 +23,13 @@
   <table class="table table-hover">
     <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">アイコン</th>
-      <th scope="col">Eメール</th>
-      <th scope="col">公開設定</th>
-      <th scope="col">ユーザー名(プロフィールリンク)</th>
+      <th scope="col" class="text-center">ID</th>
+      <th scope="col" class="text-center">アイコン</th>
+      <th scope="col" class="text-center">Eメール</th>
+      <th scope="col" class="text-center">公開設定</th>
+      <th scope="col" class="text-center">ユーザーネーム(プロフィールリンク)</th>
       <% if current_user.admin? %>
-        <th scope="col">ユーザーを削除</th>
+        <th scope="col" class="text-center">ユーザーを削除</th>
       <% end %>
     </tr>
     </thead>
@@ -44,7 +44,7 @@
         <% end %>
         <td class="align-middle"><%= user.email %></td>
         <td class="align-middle"><%= user.status_i18n %></td>
-        <td class="align-middle"><%= link_to user.name, user %></td>
+        <td class="align-middle"><%= link_to user.name, user, class: "font-weight-bold text-center" %></td>
         <% if current_user.admin? %>
           <td class="align-middle"><%= link_to "削除", user, method: :delete, data: { confirm: "このユーザーを削除してもよろしいですか？" } if current_user.admin? && !current_user?(user)  %></td>
         <% end %>

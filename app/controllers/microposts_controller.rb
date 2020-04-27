@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
 
   def new
     @micropost = current_user.microposts.new
-    @micropost.exercise_microposts.build
+    @micropost.records.build
   end
 
   def create
@@ -13,7 +13,7 @@ class MicropostsController < ApplicationController
       flash[:success] = "投稿されました！"
       redirect_to root_url
     else
-      render 'static_pages/home'
+      render 'new'
     end
   end
 
@@ -27,7 +27,7 @@ class MicropostsController < ApplicationController
   private
 
   def micropost_params
-    params.require(:micropost).permit(:content, :picture)
+    params.require(:micropost).permit(:title, :content, :picture, records_attributes: [:id, :exercise_id, :weight, :times, :sets, :_destroy])
   end
 
   def correct_user

@@ -32,11 +32,11 @@
         </div>
     </div>
   <% end %>
+  <% if @microposts.empty? %>
+    <p class="text-center">投稿はありません</p>
+  <% end %>
 <% else %>
   <p class="text-center">このアカウントは非公開です</p>
-<% end %>
-<% if @microposts.empty? %>
-  <p class="text-center">投稿はありません</p>
 <% end %>
 
 <div class="text-center"><%= will_paginate(@microposts) %></div>
