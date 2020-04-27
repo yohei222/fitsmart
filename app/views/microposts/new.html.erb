@@ -23,7 +23,7 @@
             <div class="form-group">
               <%= f.fields_for :records do |b| %>
                 <%= b.label :exercise_id, "種目" %>
-                <%= b.select :exercise_id, Exercise.all.map { |exercise| [exercise.name, exercise.id] }, class: "form-control" %>
+                <%= b.select :exercise_id, Exercise.all.map { |exercise| [exercise.name, exercise.id] }, class: "form-control", :include_blank => "▼選択してください" %>
                 <br>
                 <%= b.label :weight, "重量" %>
                 <%= b.number_field :weight %>
@@ -44,7 +44,7 @@
             <div class="form-group">
               <%= f.fields_for :records do |b| %>
                 <%= b.label :exercise_id, "種目" %>
-                <%= b.select :exercise_id, Exercise.all.map { |exercise| [exercise.name, exercise.id] }, class: "form-control" %>
+                <%= b.select :exercise_id, Exercise.all.map { |exercise| [exercise.name, exercise.id] }, class: "form-control", :include_blank => "▼選択してください" %>
                 <br>
                 <%= b.label :weight, "重量" %>
                 <%= b.number_field :weight %>
@@ -65,7 +65,7 @@
             <div class="form-group">
               <%= f.fields_for :records do |b| %>
                 <%= b.label :exercise_id, "種目" %>
-                <%= b.select :exercise_id, Exercise.all.map { |exercise| [exercise.name, exercise.id] }, class: "form-control" %>
+                <%= b.select :exercise_id, Exercise.all.map { |exercise| [exercise.name, exercise.id] }, class: "form-control", :include_blank => "▼選択してください" %>
                 <br>
                 <%= b.label :weight, "重量" %>
                 <%= b.number_field :weight %>
@@ -86,7 +86,7 @@
             <div class="form-group">
               <%= f.fields_for :records do |b| %>
                 <%= b.label :exercise_id, "種目" %>
-                <%= b.select :exercise_id, Exercise.all.map { |exercise| [exercise.name, exercise.id] }, class: "form-control" %>
+                <%= b.select :exercise_id, Exercise.all.map { |exercise| [exercise.name, exercise.id] }, class: "form-control", :include_blank => "▼選択してください" %>
                 <br>
                 <%= b.label :weight, "重量" %>
                 <%= b.number_field :weight %>
