@@ -7,7 +7,7 @@
     <% end %>
   <% else %>
     <%= form_for(micropost.likes.build, remote: true) do |f| %>
-      <div><%= hidden_field_tag :micropost_id, micropost.id %></div>
+      <%= hidden_field_tag :micropost_id, micropost.id %>
       <%= button_tag(class: "btn btn-default btn-xs") do %>
         <%= content_tag :span, "#{micropost.likes_count}", class: "glyphicon glyphicon-heart-empty text-muted" %>
       <% end %>
