@@ -45,3 +45,9 @@ body {
 .btn-xs{
   font-size: 2rem;
 }
+
+@media (min-width: 820px) {
+  .sm-block {
+    display: block;
+  }
+}

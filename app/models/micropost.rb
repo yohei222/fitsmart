@@ -7,7 +7,8 @@ class Micropost < ApplicationRecord
   mount_uploader :picture, PictureUploader
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
-  validates :content, presence: true, length: { maximum: 100 }
+  validates :title, presence: true, length: { maximum: 20 }
+  validates :content, presence: true, length: { maximum: 150 }
 
   def iine(user)
     likes.create(user_id: user.id)
