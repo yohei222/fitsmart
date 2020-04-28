@@ -1,8 +1,8 @@
 class MicropostsController < ApplicationController
   include MicropostsHelper
 
-  before_action :logged_in_user, only: [:new, :create, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
 
   def new
     @micropost = current_user.microposts.new
@@ -20,6 +20,23 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     else
       render 'new'
+    end
+  end
+
+  def edit
+
+  end
+
+  def update
+    if duplicate_exercise?(@micropost)
+      flash.now[:danger] = "トレーニングの種目が重複しています"
+      render 'new' and return
+    end
+    if @micropost.update(micropost_params)
+      flash[:success] = "投稿が更新されました"
+      redirect_to request.referrer || root_url
+    else
+      render 'edit'
     end
   end
 

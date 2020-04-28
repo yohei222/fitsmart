@@ -21,7 +21,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.includes([:records, :iine_users, :likes]).paginate(page: params[:page])
+    if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
+      @q = @user.microposts.ransack(microposts_search_params)
+      @microposts = @q.result.paginate(page: params[:page])
+      @title = "検索結果 | #{@user.name}"
+    else
+      @q = Micropost.none.ransack
+      @microposts = @user.microposts.paginate(page: params[:page])
+      @title = @user.name
+    end
+    @url = user_path(@user)
   end
 
   def create
@@ -71,6 +80,10 @@ class UsersController < ApplicationController
 
   def admin_user
     redirect_to(root_url) unless current_user.admin?
+  end
+
+  def microposts_search_params
+    params.require(:q).permit(:title_or_content_cont)
   end
 
 end
