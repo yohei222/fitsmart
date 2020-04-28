@@ -41,6 +41,7 @@
           <%= f.radio_button :status, :released, checked: "checked" %>
           <%= f.label :公開 %>
         </div>
+        <small id="emailHelp" class="form-text text-muted">※非公開にされる場合、他のユーザー様があなたの投稿を閲覧できなくなります</small>
       <% else %>
         <div class="radio-inline">
           <%= f.radio_button :status, :nonreleased, checked: "checked" %>
@@ -50,6 +51,7 @@
           <%= f.radio_button :status, :released %>
           <%= f.label :公開 %>
         </div>
+        <small id="emailHelp" class="form-text text-muted">※非公開にされる場合、他のユーザー様があなたの投稿を閲覧できなくなります</small>
       <% end %>
     </div>
     <br>

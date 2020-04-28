@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.includes([:records, :iine_users, :likes]).paginate(page: params[:page])
   end
 
   def create
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Fit Smartへようこそ！"
-      redirect_to @user
+      redirect_to root_path
     else
       render 'new'
     end
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_without_password_params)
+    if @user.update(user_params)
       flash[:success] = "プロフィール情報が更新されました"
       redirect_to @user
     else
@@ -61,11 +61,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
-  end
-
-  def user_without_password_params
-    params.require(:user).permit(:name, :email, :image, :sex, :status)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :sex, :status)
   end
 
   def correct_user

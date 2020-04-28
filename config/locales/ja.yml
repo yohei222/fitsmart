@@ -59,6 +59,7 @@ ja:
         title: タイトル
         content: 振り返り
       records:
+        exercise_id: トレーニング名
         weight: 重量
         times: 回数
         sets: セット数

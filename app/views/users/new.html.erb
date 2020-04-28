@@ -1,6 +1,6 @@
 <% provide(:title, '会員登録') %>
 
-<h1 class="display-5 text-center pb-3 mt-3">会員登録</h1>
+<h1 class="h2 text-center pb-3 mt-3 font-italic">会員登録</h1>
 <div class="form mb-5">
   <%= form_for(@user, url: signup_path) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
@@ -25,6 +25,33 @@
       <label for="exampleFormControlFile1">アイコン画像</label>
       <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: "form-control-file" %>
       <small id="emailHelp" class="form-text text-muted">アップロードされない場合はデフォルトのアイコンで登録されます</small>
+    </div>
+    <div class="field form-group">
+      <div><%= f.label :sex %></div>
+      <div class="radio-inline">
+        <%= f.radio_button :sex, :man, checked: "checked" %>
+        <%= f.label :男性 %>
+      </div>
+      <div class="radio-inline">
+        <%= f.radio_button :sex, :woman %>
+        <%= f.label :女性 %>
+      </div>
+      <div class="radio-inline">
+        <%= f.radio_button :sex, :unanswered %>
+        <%= f.label :回答しない %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <div><%= f.label :status %></div>
+      <div class="radio-inline">
+        <%= f.radio_button :status, :nonreleased %>
+        <%= f.label :非公開 %>
+      </div>
+      <div class="radio-inline">
+        <%= f.radio_button :status, :released %>
+        <%= f.label :公開 %>
+      </div>
+      <small id="emailHelp" class="form-text text-muted">※非公開にされる場合、他のユーザー様があなたの投稿を閲覧できなくなります</small>
     </div>
     <br>
     <%= f.submit "アカウントを新規作成する", class: "btn btn-primary btn-block text-light mb-5" %>
