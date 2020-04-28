@@ -21,7 +21,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+    if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
+      @q = @user.microposts.ransack(microposts_search_params)
+      @microposts = @q.result.paginate(page: params[:page])
+      @title = "検索結果 | #{@user.name}"
+    else
+      @q = Micropost.none.ransack
+      @microposts = @user.microposts.paginate(page: params[:page])
+      @title = @user.name
+    end
+    @url = user_path(@user)
   end
 
   def create
@@ -29,7 +38,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Fit Smartへようこそ！"
-      redirect_to @user
+      redirect_to root_path
     else
       render 'new'
     end
@@ -41,7 +50,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_without_password_params)
+    if @user.update(user_params)
       flash[:success] = "プロフィール情報が更新されました"
       redirect_to @user
     else
@@ -61,11 +70,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
-  end
-
-  def user_without_password_params
-    params.require(:user).permit(:name, :email, :image, :sex, :status)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :sex, :status)
   end
 
   def correct_user
@@ -75,6 +80,10 @@ class UsersController < ApplicationController
 
   def admin_user
     redirect_to(root_url) unless current_user.admin?
+  end
+
+  def microposts_search_params
+    params.require(:q).permit(:title_or_content_cont)
   end
 
 end

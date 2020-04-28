@@ -1,4 +1,4 @@
-<div class="nested-fields mb-3 border-bottom">
+<div class="form-group nested-fields mb-3 border-bottom">
   <%= f.label :exercise_id, "種目：" %>
   <%= f.select :exercise_id, Exercise.all.map { |exercise| [exercise.name, exercise.id] }, class: "form-control border-input", :include_blank => "▼選択してください" %>
   <br>
