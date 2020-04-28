@@ -31,6 +31,14 @@ img{
   font-size: 39%;
 }
 
+.bg-light-red{
+  background-color: #DDFFFF;
+}
+
+.navbar{
+  border-radius: 0px;
+}
+
 body {
   background-image: image-url('white-background.png');
   background-position: center center;
@@ -70,7 +78,6 @@ body {
   .icon-sm{
     width: 70%;
   }
-
 }
 
 .border-bottom{
@@ -86,12 +93,17 @@ body {
 }
 
 .border-input{
-  border: 0.8px inset;
+  border: 1.5px inset;
 }
 
 .full-width{
   width: 100%;
   margin: 0 auto;
+}
+
+
+.bi-coral{
+  border-color: #ddddddb0;
 }
 
 .field_with_errors{
@@ -103,9 +115,42 @@ body {
 }
 
 .margin-10rem{
-  margin-left: 0.1rem;
+  margin-left: 0.2rem;
 }
 
 .width60{
   width: 80%;
 }
+
+.navbar .nav-link {
+  font-size: 15px;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.carousel-item {
+  height: 600px;
+}
+
+.carousel-image-1 {
+  background-image: image-url('man-slide1');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
+}
+
+.carousel-image-2 {
+  background-image: image-url('slide5');
+  background-size: cover;
+  background-position: center center;
+}
+
+.carousel-image-3 {
+  background-image: image-url('man-slide5');
+  background-size: cover;
+  background-position: center center;
+
+}
+
+

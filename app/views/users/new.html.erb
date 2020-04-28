@@ -1,6 +1,6 @@
-<% provide(:title, '会員登録') %>
+<% provide(:title, 'サインアップ') %>
 
-<h1 class="h2 text-center pb-3 mt-3 font-italic">会員登録</h1>
+<h1 class="h2 text-center pb-3 mt-3 font-italic">サインアップ</h1>
 <div class="form mb-5">
   <%= form_for(@user, url: signup_path) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
@@ -54,6 +54,6 @@
       <small id="emailHelp" class="form-text text-muted">※非公開にされる場合、他のユーザー様があなたの投稿を閲覧できなくなります</small>
     </div>
     <br>
-    <%= f.submit "アカウントを新規作成する", class: "btn btn-success btn-block text-light mb-5" %>
+    <%= f.submit "アカウントを新規作成する", class: "btn btn-primary btn-block text-light mb-5" %>
   <% end %>
 </div>
