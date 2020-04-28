@@ -31,6 +31,14 @@ img{
   font-size: 39%;
 }
 
+.bg-light-red{
+  background-color: #DDFFFF;
+}
+
+.navbar{
+  border-radius: 0px;
+}
+
 body {
   background-image: image-url('white-background.png');
   background-position: center center;
@@ -70,7 +78,6 @@ body {
   .icon-sm{
     width: 70%;
   }
-
 }
 
 .border-bottom{
@@ -109,3 +116,10 @@ body {
 .width60{
   width: 80%;
 }
+
+.navbar .nav-link {
+  font-size: 15px;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+

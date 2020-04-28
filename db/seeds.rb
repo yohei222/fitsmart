@@ -30,5 +30,5 @@ users = User.order(:created_at).take(6)
   users.each { |user| user.microposts.create!(content: content, title: "筋トレ#{n+1}だよ") }
 end
 
-exercise_names = ["ベンチプレス", "ダンベルフライ", "ペックフライ", "ローイング", "ラットプルダウン", "スクワット", "レッグエクステンション", "レッグカール", "腹筋台"]
+exercise_names = ["ベンチプレス", "ダンベルフライ", "ペックフライ", "ローイング", "ラットプルダウン", "スクワット", "レッグエクステンション", "レッグカール"]
 exercise_names.each { |name| Exercise.create!(name: name) }

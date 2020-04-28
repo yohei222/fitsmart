@@ -17,7 +17,7 @@ class MicropostsController < ApplicationController
     end
     if @micropost.save
       flash[:success] = "投稿されました！"
-      redirect_to root_url
+      redirect_to request.referrer || root_url
     else
       render 'new'
     end
@@ -40,7 +40,7 @@ class MicropostsController < ApplicationController
     end
     if @micropost.update(micropost_params)
       flash[:success] = "投稿が更新されました"
-      redirect_to request.referrer || root_url
+      redirect_to micropost_path(@micropost)
     else
       render 'edit'
     end
