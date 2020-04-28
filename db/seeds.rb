@@ -4,7 +4,7 @@ User.create!(name:  "ようへい",
              password_confirmation: "password",
              admin: true, sex: 0, status: 1)
 
-50.times do |n|
+15.times do |n|
   name  = Faker::Name.name
   email = "user-public#{n+1}@gmail.com"
   password = "password"
@@ -14,7 +14,7 @@ User.create!(name:  "ようへい",
                password_confirmation: password, sex: 0, status: 1)
 end
 
-50.times do |n|
+15.times do |n|
   name  = Faker::Name.name
   email = "user-private#{n+1}@gmail.com"
   password = "password"
@@ -24,11 +24,24 @@ end
                password_confirmation: password, sex: 1, status: 0)
 end
 
-users = User.order(:created_at).take(6)
-50.times do |n|
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content, title: "筋トレ#{n+1}だよ") }
-end
-
 exercise_names = ["ベンチプレス", "ダンベルフライ", "ペックフライ", "ローイング", "ラットプルダウン", "スクワット", "レッグエクステンション", "レッグカール"]
 exercise_names.each { |name| Exercise.create!(name: name) }
+exercise_nums = [*1..8]
+weight_candidates = [15,20,25,30,35,40,45,50]
+
+users = User.order(:created_at).take(6)
+20.times do |n|
+  content = Faker::Lorem.sentence(5)
+  users.each do |user|
+    user.microposts.create!(content: "筋トレは#{content}だ！", title: "筋トレ#{n+1}だよ", picture: File.open("./app/assets/images/man-slide1.jpg"))
+  end
+end
+
+microposts = Micropost.all
+microposts.each do |micropost|
+  exercise_id = exercise_nums.sample
+  weight = weight_candidates.sample
+  times = [7,10,12,15].sample
+  sets = [1,2,3,4,5].sample
+  micropost.records.create!(exercise_id: exercise_id, weight: weight, times: times, sets: sets)
+end

@@ -60,7 +60,9 @@
         <% if current_user?(micropost.user) %>
           <%= link_to "編集", edit_micropost_path(micropost), class: "btn btn-success float-left mr-3" %>
         <% end %>
-        <%= link_to "コメントを見る", micropost_path(micropost), class: "btn btn-primary float-left" %>
+        <% if micropost.comments.exists? %>
+          <%= link_to "コメントを見る", micropost_path(micropost), class: "btn btn-primary float-left" %>
+        <% end %>
         <span id="micropost-<%= micropost.id %>" data-micropost-id="<%= micropost.id %>" class="mt-3">
               <%= render "likes/like", micropost: micropost %>
             </span>
