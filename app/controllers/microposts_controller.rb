@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
   include MicropostsHelper
 
-  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update, :destroy]
 
   def new
@@ -21,6 +21,12 @@ class MicropostsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @micropost = Micropost.find_by(id: params[:id])
+    @comments = @micropost.comments
+    @comment = Comment.new
   end
 
   def edit
