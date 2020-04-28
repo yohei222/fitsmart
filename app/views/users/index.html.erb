@@ -6,7 +6,7 @@
     <%= search_form_for @q do |f| %>
       <%= f.label :name_cont, 'ユーザーの検索' %>
       <div class="input-group">
-        <%= f.text_field :name_cont, placeholder: "ユーザーネームを入力してください", class: 'form-control' %>
+        <%= f.text_field :name_cont, placeholder: "ユーザーネームを入力してください", class: 'form-control post-paper' %>
         <span class="input-group-btn">
          <%= f.submit '検索', class: "btn btn-primary" %>
         </span>

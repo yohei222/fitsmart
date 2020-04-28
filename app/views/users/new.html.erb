@@ -6,20 +6,20 @@
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
       <%= f.label :name, "ユーザーネーム" %>
-      <%= f.text_field :name, class: "form-control", placeholder: "ユーザーネームを入力してください" %>
+      <%= f.text_field :name, class: "form-control post-paper", placeholder: "ユーザーネームを入力してください" %>
     </div>
     <div class="form-group">
       <%= f.label :email, "Eメール" %>
-      <%= f.text_field :email, class: "form-control", placeholder: "Eメールを入力してください" %>
+      <%= f.text_field :email, class: "form-control post-paper", placeholder: "Eメールを入力してください" %>
     </div>
     <div class="form-group">
       <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password, class: 'form-control',id: "exampleInputPassword1", placeholder: "パスワードを入力してください" %>
+      <%= f.password_field :password, class: 'form-control post-paper',id: "exampleInputPassword1", placeholder: "パスワードを入力してください" %>
       <small id="emailHelp" class="form-text text-muted">パスワードは6文字以上で登録してください</small>
     </div>
     <div class="form-group">
       <%= f.label :password_confirmation, "パスワード再確認" %>
-      <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードを再入力してください" %>
+      <%= f.password_field :password_confirmation, class: "form-control post-paper", placeholder: "パスワードを再入力してください" %>
     </div>
     <div class="form-group">
       <label for="exampleFormControlFile1">アイコン画像</label>
@@ -54,6 +54,6 @@
       <small id="emailHelp" class="form-text text-muted">※非公開にされる場合、他のユーザー様があなたの投稿を閲覧できなくなります</small>
     </div>
     <br>
-    <%= f.submit "アカウントを新規作成する", class: "btn btn-primary btn-block text-light mb-5" %>
+    <%= f.submit "アカウントを新規作成する", class: "btn btn-success btn-block text-light mb-5" %>
   <% end %>
 </div>

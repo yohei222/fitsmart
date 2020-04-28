@@ -5,18 +5,18 @@
   <%= form_for(:session, url: login_path) do |f| %>
     <div class="form-group">
       <%= f.label :email, "Eメール" %>
-      <%= f.text_field :email, class: "form-control", placeholder: "Eメールを入力してください" %>
+      <%= f.text_field :email, class: "form-control post-paper", placeholder: "Eメールを入力してください" %>
     </div>
     <div class="form-group">
       <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password, class: 'form-control',id: "exampleInputPassword1", placeholder: "パスワードを入力してください" %>
+      <%= f.password_field :password, class: 'form-control post-paper',id: "exampleInputPassword1", placeholder: "パスワードを入力してください" %>
       <small id="emailHelp" class="form-text text-muted">パスワードは6文字以上で登録してください</small>
     </div>
     <div class="form-group form-check">
-      <%= f.check_box :remember_me, class: "form-check-input" %>
+      <%= f.check_box :remember_me, class: "form-check-input post-paper" %>
       <label class="form-check-label ml-4">ログイン情報を記録する</label>
     </div>
     <br>
-    <%= f.submit "ログインする", class: "btn btn-primary btn-block text-light" %>
+    <%= f.submit "ログインする", class: "btn btn-success btn-block text-light" %>
   <% end %>
 </div>
