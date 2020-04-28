@@ -2,13 +2,17 @@
   <%= link_to root_path do %>
     <%= image_tag 'default.jpeg' %>
   <% end %>
-  <%= link_to "Fit Smart", root_path, class: "navbar-brand" %>
+  <%= link_to "Fit Smart", root_path, class: "navbar-brand font-italic font-weight-bold text-success" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <% if logged_in? %>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Fit Smartとは？</a>
+        </li>
+        <%= render 'shared/modal' %>
         <li class="nav-item">
           <%= link_to "新規投稿", new_micropost_path, class: "nav-link" %>
         </li>
@@ -28,30 +32,10 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Fit Smartとは？</a>
         </li>
+        <%= render 'shared/modal' %>
         <li class="nav-item">
           <%= link_to "ログイン", login_path, class: "nav-link" %>
         </li>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title　font-weight-bold h3" id="exampleModalLabel">Fit Smartとは？</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p class="font-weight-bold text-danger text-center mb-5 h3">トレーニング内容を記録、シェアできるアプリです！</p>
-                <p class="font-weight-bold text-center h4 mt-4">投稿例</p>
-                <%= image_tag 'demo.png', class: "img-full full-width" %>
-              </div>
-              <div class="modal-footer">
-                <%= link_to "サインアップ", signup_path, class: "btn btn-primary text-left" %>
-                <%= link_to "ログイン", login_path, class: "btn btn-success text-left " %>
-              </div>
-            </div>
-          </div>
-        </div>
       <% end %>
     </ul>
   </div>

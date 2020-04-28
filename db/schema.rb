@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_022328) do
+ActiveRecord::Schema.define(version: 2020_04_28_070003) do
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "micropost_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["micropost_id"], name: "index_comments_on_micropost_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "exercises", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -66,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_04_27_022328) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "comments", "microposts"
+  add_foreign_key "comments", "users"
   add_foreign_key "microposts", "users"
   add_foreign_key "records", "microposts"
 end

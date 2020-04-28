@@ -1,17 +1,17 @@
-<% provide(:title, '新規投稿') %>
-<h1 class="h2 text-center pb-3 mt-3 font-italic">新規投稿</h1>
+<% provide(:title, '投稿の編集') %>
+<h1 class="h2 text-center pb-3 mt-3 font-italic">投稿の編集</h1>
 <div class="form mb-5">
   <%= form_for(@micropost) do |f| %>
     <%= render 'shared/object_error_messages', object: f.object %>
     <div class="form-group">
       <%= f.label :title, "タイトル" %>
       <small class="text-muted text-right mt-3">(今日のトレーニングを一言で！)</small>
-      <%= f.text_field :title, class: "form-control post-paper", placeholder: "タイトルを入力してください" %>
+      <%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %>
     </div>
     <div class="form-group">
       <%= f.label :content, "振り返り" %>
       <small class="text-muted text-right mt-3">(今日のトレーニングを振り返ることで今後に役立てましょう！)</small>
-      <%= f.text_area :content, size: "30x10", class: "form-control post-paper", placeholder: "振り返りを入力してください" %>
+      <%= f.text_area :content, size: "30x10", class: "form-control", placeholder: "振り返りを入力してください" %>
     </div>
     <div class="form-group">
       <label for="exampleFormControlFile1">画像</label>
@@ -36,7 +36,7 @@
     </div>
     <br>
     <div class="form mt-5">
-      <%= f.submit "新規投稿", class: "btn btn-primary btn-block text-light" %>
+      <%= f.submit "投稿を更新する", class: "btn btn-primary btn-block text-light" %>
     </div>
   <% end %>
 </div>

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :microposts, only: [:new, :create, :destroy]
+  resources :microposts, only: [:new, :create, :edit, :show, :update, :destroy] do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :likes, only: [:create, :destroy]
 end

@@ -5,11 +5,11 @@
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
       <%= f.label :name, "ユーザーネーム" %>
-      <%= f.text_field :name, class: "form-control", placeholder: "ユーザーネームを入力してください" %>
+      <%= f.text_field :name, class: "form-control post-paper", placeholder: "ユーザーネームを入力してください" %>
     </div>
     <div class="form-group">
       <%= f.label :email, "Eメール" %>
-      <%= f.text_field :email, class: "form-control", placeholder: "Eメールを入力してください" %>
+      <%= f.text_field :email, class: "form-control post-paper", placeholder: "Eメールを入力してください" %>
     </div>
     <div class="form-group">
       <label for="exampleFormControlFile1">アイコン画像</label>
@@ -41,6 +41,7 @@
           <%= f.radio_button :status, :released, checked: "checked" %>
           <%= f.label :公開 %>
         </div>
+        <small id="emailHelp" class="form-text text-muted">※非公開にされる場合、他のユーザー様があなたの投稿を閲覧できなくなります</small>
       <% else %>
         <div class="radio-inline">
           <%= f.radio_button :status, :nonreleased, checked: "checked" %>
@@ -50,6 +51,7 @@
           <%= f.radio_button :status, :released %>
           <%= f.label :公開 %>
         </div>
+        <small id="emailHelp" class="form-text text-muted">※非公開にされる場合、他のユーザー様があなたの投稿を閲覧できなくなります</small>
       <% end %>
     </div>
     <br>
