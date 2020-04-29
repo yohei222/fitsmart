@@ -82,23 +82,24 @@ class UsersController < ApplicationController
     @exercise7 = []
     @exercise8 = []
     @records.each do |record|
-      record = record.first
-      if record.exercise_id == 1
-        @exercise1 << record
-      elsif record.exercise_id == 2
-        @exercise2 << record
-      elsif record.exercise_id == 3
-        @exercise3 << record
-      elsif record.exercise_id == 4
-        @exercise4 << record
-      elsif record.exercise_id == 5
-        @exercise5 << record
-      elsif record.exercise_id == 6
-        @exercise6 << record
-      elsif record.exercise_id == 7
-        @exercise7 << record
-      elsif record.exercise_id == 8
-        @exercise8 << record
+      record.each do |record|
+        if record.exercise_id == 1
+          @exercise1 << record
+        elsif record.exercise_id == 2
+          @exercise2 << record
+        elsif record.exercise_id == 3
+          @exercise3 << record
+        elsif record.exercise_id == 4
+          @exercise4 << record
+        elsif record.exercise_id == 5
+          @exercise5 << record
+        elsif record.exercise_id == 6
+          @exercise6 << record
+        elsif record.exercise_id == 7
+          @exercise7 << record
+        elsif record.exercise_id == 8
+          @exercise8 << record
+        end
       end
     end
     if @exercise1.empty? && @exercise2.empty? && @exercise3.empty? && @exercise4.empty? && @exercise5.empty? && @exercise6.empty? && @exercise7.empty? && @exercise8.empty?
