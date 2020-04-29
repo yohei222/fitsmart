@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @user.email = 'guest1234@gmail.com'
+    if @user.email == 'guest1234@gmail.com'
       flash[:danger] = "ゲストユーザーはユーザー情報を更新できません"
       redirect_to root_path
     end
