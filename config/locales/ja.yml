@@ -53,6 +53,7 @@ ja:
         email: Eメール
         image: 画像
         password: パスワード
+        password confirmation: 再確認用パスワード
         sex: 性別
         status: 公開設定
       micropost:
