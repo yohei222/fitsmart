@@ -1,4 +1,4 @@
-<% provide(:title, 'グラフ |' + @user.name + 'さん'  ) %>
+<% provide(:title, 'グラフ | ' + @user.name + 'さん'  ) %>
 <h1 class="display-5 text-center pb-5 mt-3">
   <% if @user.image? %>
     <img src='<%= @user.image %>' class="icon"><span class="h2 ml-3 align-middle"><%= @user.name %></span><span class="ml-4 font-small text-muted">さんの</span><br><span class="font-small-2">種目別トレーニング一覧</span>
@@ -8,20 +8,17 @@
 </h1>
 
 <% if @user.released? || current_user?(@user) || current_user.admin? %>
-
-  <%= render 'users/chart', object: sr(@exercise1) %>
-  <%= render 'users/chart', object: sr(@exercise2) %>
-  <%= render 'users/chart', object: sr(@exercise3) %>
-  <%= render 'users/chart', object: sr(@exercise4) %>
-  <%= render 'users/chart', object: sr(@exercise5) %>
-  <%= render 'users/chart', object: sr(@exercise6) %>
-  <%= render 'users/chart', object: sr(@exercise7) %>
-  <%= render 'users/chart', object: sr(@exercise8) %>
+  <%= render 'users/chart', object: sr(@exercise1) unless @exercise1.empty? %>
+  <%= render 'users/chart', object: sr(@exercise2) unless @exercise2.empty? %>
+  <%= render 'users/chart', object: sr(@exercise3) unless @exercise3.empty? %>
+  <%= render 'users/chart', object: sr(@exercise4) unless @exercise4.empty? %>
+  <%= render 'users/chart', object: sr(@exercise5) unless @exercise5.empty? %>
+  <%= render 'users/chart', object: sr(@exercise6) unless @exercise6.empty? %>
+  <%= render 'users/chart', object: sr(@exercise7) unless @exercise7.empty? %>
+  <%= render 'users/chart', object: sr(@exercise8) unless @exercise8.empty? %>
 
 <% else %>
-
   <p class="text-center">このアカウントは非公開です</p>
-
 <% end %>
 
 

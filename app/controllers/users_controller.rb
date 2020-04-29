@@ -102,6 +102,7 @@ class UsersController < ApplicationController
         end
       end
     end
+
     if @exercise1.empty? && @exercise2.empty? && @exercise3.empty? && @exercise4.empty? && @exercise5.empty? && @exercise6.empty? && @exercise7.empty? && @exercise8.empty?
       flash[:danger] = "トレーニング履歴がありません"
     end
