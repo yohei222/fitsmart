@@ -21,6 +21,10 @@ module ApplicationHelper
     else
       errors.delete("パスワードを入力してください")
     end
+    if errors.include?("Password confirmationとパスワードの入力が一致しません")
+      errors.delete("Password confirmationとパスワードの入力が一致しません")
+      errors << "パスワードと再確認用パスワードが一致していません"
+    end
     return errors
   end
 

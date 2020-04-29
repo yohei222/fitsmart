@@ -37,9 +37,10 @@ weight_candidates = [15,20,25,30,35,40,45,50]
 
 users = User.order(:created_at).take(6)
 10.times do |n|
-  content = Faker::Lorem.sentence(5)
+  content = ["習慣","気持ち良い","疲れる","楽しい","自分との戦い","健康への道"]
+  photos = ["./app/assets/images/man-slide1.jpg", "./app/assets/images/man-slide5.jpg", "./app/assets/images/slide5.jpg"]
   users.each do |user|
-    user.microposts.create!(content: "筋トレは#{content}だ！", title: "筋トレ#{n+1}だよ", picture: File.open("./app/assets/images/man-slide1.jpg"))
+    user.microposts.create!(content: "筋トレは#{content.sample}！", title: "筋トレ#{n+1}日目だよ", picture: File.open("#{photos.sample}"))
   end
 end
 
