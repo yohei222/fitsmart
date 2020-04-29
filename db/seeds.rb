@@ -4,7 +4,13 @@ User.create!(name:  "ようへい",
              password_confirmation: "password",
              admin: true, sex: 0, status: 1)
 
-15.times do |n|
+User.create!(name:  "ゲストユーザー",
+             email: "guest1234@gmail.com",
+             password:              "password",
+             password_confirmation: "password",
+             sex: 0, status: 1)
+
+2.times do |n|
   name  = Faker::Name.name
   email = "user-public#{n+1}@gmail.com"
   password = "password"
@@ -14,7 +20,7 @@ User.create!(name:  "ようへい",
                password_confirmation: password, sex: 0, status: 1)
 end
 
-15.times do |n|
+2.times do |n|
   name  = Faker::Name.name
   email = "user-private#{n+1}@gmail.com"
   password = "password"
@@ -30,7 +36,7 @@ exercise_nums = [*1..8]
 weight_candidates = [15,20,25,30,35,40,45,50]
 
 users = User.order(:created_at).take(6)
-20.times do |n|
+10.times do |n|
   content = Faker::Lorem.sentence(5)
   users.each do |user|
     user.microposts.create!(content: "筋トレは#{content}だ！", title: "筋トレ#{n+1}だよ", picture: File.open("./app/assets/images/man-slide1.jpg"))

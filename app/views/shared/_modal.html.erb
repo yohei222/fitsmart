@@ -12,10 +12,12 @@
         <p class="font-weight-bold text-center h4 mt-4">投稿例</p>
         <%= image_tag 'demo.png', class: "img-full full-width" %>
       </div>
-      <div class="modal-footer">
-        <%= link_to "サインアップ", signup_path, class: "btn btn-primary text-left" %>
-        <%= link_to "ログイン", login_path, class: "btn btn-success text-left " %>
-      </div>
+      <% unless logged_in? %>
+        <div class="modal-footer">
+          <%= link_to "サインアップ", signup_path, class: "btn btn-primary text-left" %>
+          <%= link_to "ログイン", login_path, class: "btn btn-success text-left " %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

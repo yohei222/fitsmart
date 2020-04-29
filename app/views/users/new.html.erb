@@ -56,4 +56,12 @@
     <br>
     <%= f.submit "アカウントを新規作成する", class: "btn btn-primary btn-block text-light mb-5" %>
   <% end %>
+  <div class="position-center">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.hidden_field :email, :value => 'guest1234@gmail.com' %>
+      <%= f.hidden_field :password, :value => 'password' %>
+      <%= f.submit "ゲストログイン", class: "btn btn-success btn-lg font-italic text-center margin-auto" %>
+    <% end %>
+  </div>
 </div>
+
