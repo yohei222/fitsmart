@@ -12,8 +12,6 @@
 * Heroku
 * cocoon
 
-## 投稿例
-![Uploading fitsmart.png…]()
 
 
 
