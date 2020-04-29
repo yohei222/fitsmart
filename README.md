@@ -1,24 +1,19 @@
-# README
+# Fit Smart
+トレーニング内容や、その感想を記録・シェアできる筋トレSNS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 使用技術
+* Ruby
+* Rails
+* Html
+* Scss
+* Bootstrap
+* JavaScript
+* JQuery
+* Heroku
+* cocoon
 
-Things you may want to cover:
+## 投稿例
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
