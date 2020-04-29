@@ -12,7 +12,8 @@
 * Heroku
 * cocoon
 
-##　投稿例
+## 投稿例
+
 ![投稿例](https://raw.githubusercontent.com/yohei222/fitsmart4/master/app/assets/images/demo.png?token=ANQJ2PRO7STJL6OFNJWNAYK6VE5PO)
 
 
