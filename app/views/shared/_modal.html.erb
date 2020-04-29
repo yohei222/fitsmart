@@ -14,6 +14,11 @@
       </div>
       <% unless logged_in? %>
         <div class="modal-footer">
+          <%= form_for(:session, url: login_path) do |f| %>
+            <%= f.hidden_field :email, :value => 'guest1234@gmail.com' %>
+            <%= f.hidden_field :password, :value => 'password' %>
+            <%= f.submit "ゲストログイン", class: "btn btn-success font-italic text-left" %>
+          <% end %>
           <%= link_to "サインアップ", signup_path, class: "btn btn-primary text-left" %>
           <%= link_to "ログイン", login_path, class: "btn btn-success text-left " %>
         </div>

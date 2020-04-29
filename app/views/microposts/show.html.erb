@@ -48,10 +48,10 @@
   <% @comments.each do |c| %>
     <div class="card mt-4 margin-auto">
       <div class="card-header">
-        <% if @micropost.user.image? %>
-          <img src='<%= @micropost.user.image %>' class="icon icon-small"><span class="h4 ml-3 align-middle"><%= link_to @micropost.user.name, user_path(@micropost.user), class: "text-muted" %></span>
+        <% if c.user.image? %>
+          <img src='<%= c.user.image %>' class="icon icon-small"><span class="h4 ml-3 align-middle"><%= link_to c.user.name, user_path(c.user), class: "text-muted" %></span>
         <% else %>
-          <%= image_tag 'default.jpeg', class: "icon icon-small" %><span class="h4 ml-3 pt-2 align-middle"><%= link_to @micropost.user.name, user_path(@micropost.user), class: "text-muted" %></span>
+          <%= image_tag 'default.jpeg', class: "icon icon-small" %><span class="h4 ml-3 pt-2 align-middle"><%= link_to c.user.name, user_path(c.user), class: "text-muted" %></span>
         <% end %>
       </div>
       <div class="card-body post-paper">
