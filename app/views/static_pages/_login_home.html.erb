@@ -12,6 +12,11 @@
             <h1 class="display-3 font-italic">Fit Smart</h1>
             <p class="lead font-italic">トレーニングの内容や詳細を記録・シェアすることができます</p>
             <%= link_to "今すぐサインアップ！", signup_path, class: "btn btn-danger btn-lg font-italic" %>
+            <%= form_for(:session, url: login_path) do |f| %>
+              <%= f.hidden_field :email, :value => 'guest1234@gmail.com' %>
+              <%= f.hidden_field :password, :value => 'password' %>
+              <%= f.submit "ゲストログイン", class: "btn btn-success btn-lg font-italic mt-3" %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -22,6 +27,11 @@
             <h1 class="display-3 font-italic">Fit Smart</h1>
             <p class="lead font-italic">サボりがちになっていませんか？<br>今日からあなたのトレーニングを管理しましょう！</p>
             <%= link_to "今すぐサインアップ！", signup_path, class: "btn btn-danger btn-lg font-italic" %>
+            <%= form_for(:session, url: login_path) do |f| %>
+              <%= f.hidden_field :email, :value => 'guest1234@gmail.com' %>
+              <%= f.hidden_field :password, :value => 'password' %>
+              <%= f.submit "ゲストログイン", class: "btn btn-success btn-lg font-italic mt-3" %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -32,6 +42,11 @@
             <h1 class="display-3 font-italic">Fit Smart</h1>
             <p class="lead font-italic">一緒に筋トレをしましょう！</p>
             <%= link_to "今すぐサインアップ！", signup_path, class: "btn btn-danger btn-lg font-italic" %>
+            <%= form_for(:session, url: login_path) do |f| %>
+              <%= f.hidden_field :email, :value => 'guest1234@gmail.com' %>
+              <%= f.hidden_field :password, :value => 'password' %>
+              <%= f.submit "ゲストログイン", class: "btn btn-success btn-lg font-italic mt-3" %>
+            <% end %>
           </div>
         </div>
       </div>

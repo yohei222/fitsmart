@@ -47,6 +47,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user.email = 'guest1234@gmail.com'
+      flash[:danger] = "ゲストユーザーはユーザー情報を更新できません"
+      redirect_to root_path
+    end
   end
 
   def update
@@ -96,6 +100,9 @@ class UsersController < ApplicationController
       elsif record.exercise_id == 8
         @exercise8 << record
       end
+    end
+    if @exercise1.empty? && @exercise2.empty? && @exercise3.empty? && @exercise4.empty? && @exercise5.empty? && @exercise6.empty? && @exercise7.empty? && @exercise8.empty?
+      flash[:danger] = "トレーニング履歴がありません"
     end
   end
 
