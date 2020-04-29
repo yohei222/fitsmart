@@ -5,11 +5,11 @@ class StaticPagesController < ApplicationController
       if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
         @q =  Micropost.includes([:records, :likes]).ransack(microposts_search_params)
         @title = "検索結果"
-        @feed_items = @q.result.paginate(page: params[:page], per_page: 7)
+        @feed_items = @q.result.paginate(page: params[:page], per_page: 10)
       else
         @q = Micropost.none.ransack
         @title = "投稿一覧"
-        @feed_items = Micropost.includes([:records, :likes]).paginate(page: params[:page], per_page: 7)
+        @feed_items = Micropost.includes([:records, :likes]).paginate(page: params[:page], per_page: 10)
       end
       @url = root_path
     end
