@@ -1,0 +1,26 @@
+<% unless object.empty? %>
+  <table class="table mb-5 table-hover m5-3">
+    <h3 class="h3 text-center pb-3 mt-3 font-italic text-success"><%= Exercise.find(object.first.exercise_id).name %></h3>
+      <thead>
+      <tr>
+        <th scope="col" class="text-center">重さ</th>
+        <th scope="col" class="text-center">回数</th>
+        <th scope="col" class="text-center">セット数</th>
+        <th scope="col" class="text-center">日付</th>
+        <th scope="col" class="text-center">リンク</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% object.each do |exercise| %>
+        <tr>
+          <th scope="row" class="text-center"><%= exercise.weight %></th>
+          <td class="text-center"><%= exercise.times %></td>
+          <td class="text-center"><%= exercise.sets %></td>
+          <td class="text-center"><%= exercise.created_at.strftime('%m/%d') %></td>
+          <td class="text-center"><%= link_to "振り返りを見る", micropost_path(exercise.micropost), class: "btn btn-success btn-sm font-italic" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+  </table>
+<% end %>
+<div class="border-bottom pt-5"></div>

@@ -7,27 +7,29 @@
 <% end %>
 </h1>
 
-<div class="mb-5 pb-3">
-  <div class="search-form">
-    <%= search_form_for @q, url: @url do |f| %>
-      <%= f.label :content_cont, 'キーワード検索' %>
-      <div class="input-group">
-        <%= f.text_field :title_or_content_cont, placeholder: "キーワードを入力してください", class: 'form-control post-paper' %>
-        <span class="input-group-btn">
-          <%= f.submit '検索', class: "btn btn-primary" %>
-        </span>
-      </div>
-    <% end %>
-  <div>
-</div>
-
-<div class="border-bottom pt-2 font-weight-bold mt-4 mb-5">
-  <% if @title == "検索結果 | #{@user.name}" %>
-    <h4 class="text-center font-weight-bold font-italic">検索結果</h4>
-  <% end %>
-</div>
-
 <% if @user.released? || current_user?(@user) || current_user.admin? %>
+  <% if @microposts.exists? %>
+    <div class="mb-5 pb-3">
+      <div class="search-form">
+        <%= search_form_for @q, url: @url do |f| %>
+        <%= f.label :content_cont, 'キーワード検索' %>
+        <div class="input-group">
+            <%= f.text_field :title_or_content_cont, placeholder: "キーワードを入力してください", class: 'form-control post-paper' %>
+            <span class="input-group-btn">
+              <%= f.submit '検索', class: "btn btn-primary" %>
+            </span>
+        </div>
+        <% end %>
+      <div>
+    </div>
+
+    <div class="border-bottom pt-2 font-weight-bold mt-4 mb-5">
+      <% if @title == "検索結果 | #{@user.name}" %>
+        <h4 class="text-center font-weight-bold font-italic">検索結果</h4>
+      <% end %>
+    </div>
+  <% end %>
+
   <% @microposts.each do |micropost| %>
     <div class="card mb-5">
       <div class="card-header">

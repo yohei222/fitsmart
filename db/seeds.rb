@@ -40,8 +40,13 @@ end
 microposts = Micropost.all
 microposts.each do |micropost|
   exercise_id = exercise_nums.sample
+  exercise_id2 = exercise_nums.sample
   weight = weight_candidates.sample
+  weight2 = weight_candidates.sample
   times = [7,10,12,15].sample
+  times2 = [7,10,12,15].sample
   sets = [1,2,3,4,5].sample
+  sets2 = [1,2,3,4,5].sample
   micropost.records.create!(exercise_id: exercise_id, weight: weight, times: times, sets: sets)
+  micropost.records.create!(exercise_id: exercise_id2, weight: weight2, times: times2, sets: sets2)
 end

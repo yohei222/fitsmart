@@ -23,7 +23,6 @@
     <tr>
       <th scope="col" class="text-center">アイコン</th>
       <th scope="col" class="text-center">Eメール</th>
-      <th scope="col" class="text-center">性別</th>
       <th scope="col" class="text-center">公開設定</th>
       <th scope="col" class="text-center">ユーザーネーム</th>
       <% if current_user.admin? %>
@@ -40,7 +39,6 @@
           <td class="align-middle"><%= image_tag 'default.jpeg', class: "icon-sm" %></td>
         <% end %>
         <td class="align-middle"><%= user.email %></td>
-        <td class="align-middle"><%= user.sex_i18n %></td>
         <td class="align-middle"><%= user.status_i18n %></td>
         <td class="align-middle"><%= link_to user.name, user, class: "font-weight-bold text-center" %></td>
         <% if current_user.admin? %>
