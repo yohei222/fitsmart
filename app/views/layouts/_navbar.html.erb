@@ -19,11 +19,15 @@
         <li class="nav-item">
           <%= link_to "ユーザー検索", users_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "マイページ", current_user, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "マイアカウントの編集", edit_user_path(current_user), class: "nav-link" %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            マイアカウント
+          </a>
+          <div class="dropdown-menu bg-light-red" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "マイページ", current_user, class: "dropdown-item" %>
+            <%= link_to "マイアカウントの編集", edit_user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "トレーニング履歴", chart_path(current_user), class: "dropdown-item" %>
+          </div>
         </li>
         <li class="nav-item">
           <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link", data: { confirm: "ログアウトします。よろしいですか？"}  %>

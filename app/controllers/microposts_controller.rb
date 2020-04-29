@@ -25,7 +25,7 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost = Micropost.find_by(id: params[:id])
-    @comments = @micropost.comments
+    @comments = @micropost.try(:comments)
     @comment = Comment.new
   end
 
@@ -50,7 +50,7 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find_by(id: params[:id])
     @micropost.destroy
     flash[:success] = "投稿を削除しました"
-    redirect_to request.referrer || root_url
+    redirect_to root_url
   end
 
   private

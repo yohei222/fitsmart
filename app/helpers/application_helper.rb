@@ -23,4 +23,9 @@ module ApplicationHelper
     end
     return errors
   end
+
+  def sr(exercise)
+    exercise.sort.reverse
+  end
+
 end
