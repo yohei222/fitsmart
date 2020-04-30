@@ -82,6 +82,18 @@ body {
   .icon-sm{
     width: 70%;
   }
+  .phone{
+    display: none;
+  }
+  .phone-show{
+    display: block;
+  }
+}
+
+@media screen and (min-width: 821px) {
+  .phone-show{
+    display: none;
+  }
 }
 
 .border-bottom{
@@ -162,4 +174,6 @@ body {
   margin: 0 auto;
   text-align: center
 }
+
+
 
