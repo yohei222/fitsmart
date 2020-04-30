@@ -1,4 +1,4 @@
-<section id="showcase">
+<section id="showcase mb-5">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -62,6 +62,29 @@
   </div>
 </section>
 
+<div class="border-bottom pt-5"></div>
+
+<div class="modal-content mt-5 mb-5 phone-show">
+  <div class="modal-header">
+    <h5 class="modal-title　font-weight-bold h3" id="exampleModalLabel">Fit Smartとは？</h5>
+  </div>
+  <div class="modal-body">
+    <p class="font-weight-bold text-danger text-center mb-5 h3">トレーニング内容を記録、シェアできるアプリです！</p>
+    <p class="font-weight-bold text-center h4 mt-4 mb-5">投稿例</p>
+    <%= image_tag 'demo.png', class: "img-full full-width" %>
+  </div>
+  <% unless logged_in? %>
+    <div class="modal-footer">
+      <%= form_for(:session, url: login_path) do |f| %>
+        <%= f.hidden_field :email, :value => 'guest1234@gmail.com' %>
+        <%= f.hidden_field :password, :value => 'password' %>
+        <%= f.submit "ゲストログイン", class: "btn btn-success font-italic text-left btn-sm" %>
+      <% end %>
+      <%= link_to "サインアップ", signup_path, class: "btn btn-primary text-left btn-sm" %>
+      <%= link_to "ログイン", login_path, class: "btn btn-success text-left btn-sm" %>
+    </div>
+  <% end %>
+</div>
 
 
 

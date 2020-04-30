@@ -69,4 +69,9 @@
   <div class="text-center"><%= will_paginate(@feed_items) %></div>
 <% else %>
   <%= render 'static_pages/login_home' %>
+  <div class="border-bottom pt-5 phone margin-auto text-center"></div>
+  <div class="margin-auto text-center">
+    <a class="btn btn-success font-italic btn-lg phone text-light" data-toggle="modal" data-target="#exampleModal">Fit Smartとは？</a>
+  </div>
+  <span class="phone"><%= render 'shared/modal' %></span>
 <% end %>
