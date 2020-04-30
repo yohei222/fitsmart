@@ -33,10 +33,10 @@
           <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link", data: { confirm: "ログアウトします。よろしいですか？"}  %>
         </li>
       <% else %>
-        <li class="nav-item">
+        <li class="nav-item phone">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Fit Smartとは？</a>
         </li>
-        <%= render 'shared/modal' %>
+        <span class="phone"><%= render 'shared/modal' %></span>
         <li class="nav-item">
           <%= link_to "ログイン", login_path, class: "nav-link" %>
         </li>
