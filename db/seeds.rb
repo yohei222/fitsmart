@@ -7,8 +7,7 @@ User.create!(name:  "ようへい",
 User.create!(name:  "ゲストユーザー",
              email: "guest1234@gmail.com",
              password:              "password",
-             password_confirmation: "password",
-             sex: 0, status: 1)
+             password_confirmation: "password", admin: false, sex: 0, status: 1)
 
 2.times do |n|
   name  = Faker::Name.name
@@ -17,7 +16,7 @@ User.create!(name:  "ゲストユーザー",
   User.create!(name:  name,
                email: email,
                password:              password,
-               password_confirmation: password, sex: 0, status: 1)
+               password_confirmation: password, sex: 0, status: 1, admin: false)
 end
 
 2.times do |n|
@@ -27,7 +26,7 @@ end
   User.create!(name:  name,
                email: email,
                password:              password,
-               password_confirmation: password, sex: 1, status: 0)
+               password_confirmation: password, sex: 1, status: 0, admin: false)
 end
 
 exercise_names = ["ベンチプレス", "ダンベルフライ", "ペックフライ", "ローイング", "ラットプルダウン", "スクワット", "レッグエクステンション", "レッグカール"]
