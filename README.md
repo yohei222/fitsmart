@@ -4,6 +4,7 @@
 ## 使用技術
 * Ruby
 * Rails
+* RSpec
 * Html
 * Scss
 * Bootstrap
