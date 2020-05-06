@@ -55,6 +55,9 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'rspec-rails', '~>3.6.0'
+  gem 'factory_bot_rails', '~>4.10.0'
+  gem 'launchy', '~>2.4.3'
 end
 
 group :development do
@@ -66,19 +69,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
-  gem 'rspec-rails'
-  gem 'spring-commands-rspec'
-  gem 'factory_bot_rails'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'launchy'
   gem "selenium-webdriver"
-  gem 'shoulda-matchers',
-      git: 'https://github.com/thoughtbot/shoulda-matchers.git',
-      branch: 'rails-5'
 end
 
 group :production do

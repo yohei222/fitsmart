@@ -56,7 +56,7 @@
       </div>
       <div class="card-body post-paper">
         <span class="font-italic align-middle"><%= c.content %></span>
-        <% if current_user?(c.micropost.user) || current_user.admin? %>
+        <% if current_user?(c.user) || current_user.admin? %>
           <%= link_to "削除", micropost_comment_path(c.micropost,c), method: :delete, data: { confirm: "本当に削除してよろしいですか？" }, class: "btn btn-danger btn-sm float-right mr-3" %>
         <% end %>
       </div>

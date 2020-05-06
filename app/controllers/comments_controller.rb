@@ -9,7 +9,11 @@ class CommentsController < ApplicationController
       flash[:success] = "コメントしました"
       redirect_to micropost_path(@micropost)
     else
-      flash[:danger] = "コメントできませんでした"
+      unless @comment.content.empty?
+        flash[:danger] = "コメントできませんでした"
+      else
+        flash[:danger] = "コメントは20文字以下で入力してください"
+      end
       redirect_to micropost_path(@micropost)
     end
   end
