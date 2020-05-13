@@ -45,10 +45,21 @@ test:
 # You can use this database configuration with:
 #
 #   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+#     url: <%#= ENV['DATABASE_URL'] %>
 #
+#production:
+#  <<: *default
+#  database: fitsmart4_production
+#  username: fitsmart4
+#  password: <%#= ENV['FITSMART4_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
-  database: fitsmart4_production
-  username: fitsmart4
-  password: <%= ENV['FITSMART4_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_DATABASE'] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>

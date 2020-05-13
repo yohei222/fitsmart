@@ -39,6 +39,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'dotenv-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -58,6 +59,7 @@ group :development, :test do
   gem 'rspec-rails', '~>3.6.0'
   gem 'factory_bot_rails', '~>4.10.0'
   gem 'launchy', '~>2.4.3'
+  gem 'rails-erd'
 end
 
 group :development do
@@ -79,6 +81,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
+  # gem 'mysql2'
   gem 'fog', '1.42'
 end
